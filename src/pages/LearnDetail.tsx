@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,8 +8,29 @@ import { motion } from "framer-motion";
 
 const MotionDiv = motion.div;
 
+// Update the resource type to include optional isDownloadable property
+type Resource = {
+  title: string;
+  url: string;
+  isDownloadable?: boolean;
+};
+
+// Update the section type
+type Section = {
+  title: string;
+  content: string;
+};
+
+// Update the content type
+type LearnContent = {
+  title: string;
+  description: string;
+  sections: Section[];
+  resources: Resource[];
+};
+
 // Define the content for each topic
-const learnContent = {
+const learnContent: Record<string, LearnContent> = {
   "investment-basics": {
     title: "Investment Basics",
     description: "Learn essential concepts of investing and growing your wealth.",
@@ -364,7 +386,7 @@ const LearnDetail = () => {
                   className="w-full"
                 >
                   <Button variant="outline" className="w-full">
-                    {resource.isDownloadable !== undefined ? resource.isDownloadable : false ? (
+                    {resource.isDownloadable ? (
                       <>Download <Download className="ml-2 h-4 w-4" /></>
                     ) : (
                       <>Visit Resource <ExternalLink className="ml-2 h-4 w-4" /></>
