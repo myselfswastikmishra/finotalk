@@ -8,6 +8,7 @@ import { Layout } from "./components/Layout";
 import Index from "./pages/Index";
 import Chat from "./pages/Chat";
 import Learn from "./pages/Learn";
+import LearnDetail from "./pages/LearnDetail";
 import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
 
@@ -41,6 +42,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/chat" element={<Chat />} />
                 <Route path="/learn" element={<Learn />} />
+                <Route path="/learn/:topic" element={<LearnDetail />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
