@@ -4,7 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { StockAnalysis } from "@/components/market/StockAnalysis";
 import { CryptoAnalysis } from "@/components/market/CryptoAnalysis";
 import { MarketNews } from "@/components/market/MarketNews";
+import { NewsSection } from "@/components/news/NewsSection";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const MarketAnalysis = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,10 +40,11 @@ const MarketAnalysis = () => {
       </div>
 
       <Tabs defaultValue="stocks" className="w-full max-w-6xl mx-auto">
-        <TabsList className="grid w-full grid-cols-3 mb-8">
+        <TabsList className="grid w-full grid-cols-4 mb-8">
           <TabsTrigger value="stocks">Stock Analysis</TabsTrigger>
           <TabsTrigger value="crypto">Crypto Analysis</TabsTrigger>
           <TabsTrigger value="news">Market News</TabsTrigger>
+          <TabsTrigger value="real-time-news">Real-Time News</TabsTrigger>
         </TabsList>
         
         <TabsContent value="stocks" className="mt-6">
@@ -52,6 +57,20 @@ const MarketAnalysis = () => {
         
         <TabsContent value="news" className="mt-6">
           <MarketNews />
+        </TabsContent>
+        
+        <TabsContent value="real-time-news" className="mt-6">
+          <div className="mb-6">
+            <NewsSection compact={true} />
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link to="/financial-news">
+              <Button variant="outline" size="lg">
+                View Full News Center <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </TabsContent>
       </Tabs>
     </div>
