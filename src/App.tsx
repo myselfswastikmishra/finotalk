@@ -10,6 +10,7 @@ import Chat from "./pages/Chat";
 import Learn from "./pages/Learn";
 import LearnDetail from "./pages/LearnDetail";
 import Resources from "./pages/Resources";
+import MarketAnalysis from "./pages/MarketAnalysis";
 import NotFound from "./pages/NotFound";
 
 import { useEffect } from "react";
@@ -44,6 +45,7 @@ const App = () => {
                 <Route path="/learn" element={<Learn />} />
                 <Route path="/learn/:topic" element={<LearnDetail />} />
                 <Route path="/resources" element={<Resources />} />
+                <Route path="/market-analysis" element={<MarketAnalysis />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>

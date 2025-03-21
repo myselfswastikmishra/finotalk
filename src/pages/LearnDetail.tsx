@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -365,7 +364,7 @@ const LearnDetail = () => {
                   className="w-full"
                 >
                   <Button variant="outline" className="w-full">
-                    {resource.isDownloadable ? (
+                    {resource.isDownloadable !== undefined ? resource.isDownloadable : false ? (
                       <>Download <Download className="ml-2 h-4 w-4" /></>
                     ) : (
                       <>Visit Resource <ExternalLink className="ml-2 h-4 w-4" /></>
